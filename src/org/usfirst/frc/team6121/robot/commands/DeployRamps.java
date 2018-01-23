@@ -9,19 +9,16 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DeployRamps extends Command {
 	private double speed;
-	//private double time;
 
     public DeployRamps(double r) {
     	requires(Robot.climbingSubsystem);
     	speed = r;
-    	//this.time = t;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -32,7 +29,6 @@ public class DeployRamps extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	return false;
-        //return isTimedOut();
     }
 
     // Called once after isFinished returns true

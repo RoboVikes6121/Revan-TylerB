@@ -19,10 +19,10 @@ public class OI {
 		operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK);
 		
 		Button deployRampsButton = new JoystickButton(operatorJoystick, RobotMap.RAMP_BUTTON);
-		deployRampsButton.toggleWhenPressed(new DeployRamps(.1));
+		deployRampsButton.toggleWhenPressed(new DeployRamps(.5));
 		
 		Button disarmRampButton = new JoystickButton(operatorJoystick, RobotMap.DISARM_RAMP_BUTTON);
-		disarmRampButton.toggleWhenPressed(new DeployRamps(-.1));
+		disarmRampButton.toggleWhenPressed(new DeployRamps(-.5));
 	
 	}
 	

@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6121.robot;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -34,14 +34,17 @@ public class RobotMap {
 	public static final int RAMP_BUTTON = 6;
 
 	public static final int SHOOTER_MOTOR = 1;
-	public static final int BALL_INTAKE_MOTOR = 6;
-	public static final int RAMP_MOTOR = 0;
+	public static final int BALL_INTAKE_MOTOR = 0;
+	public static final int RAMP_MOTOR_1 = 6;
+	public static final int RAMP_MOTOR_2 = 7;
 	
-	public static SpeedController rMotor;
+	public static SpeedController rMotor1;
+	public static SpeedController rMotor2;
 	
 	public static void init() {
 		
-		rMotor = new Victor(RAMP_MOTOR);
+		rMotor1 = new Spark(RAMP_MOTOR_1);
+		rMotor2 = new Spark(RAMP_MOTOR_2);
 	
 	}
 	
