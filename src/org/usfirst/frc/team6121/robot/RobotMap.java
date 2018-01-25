@@ -1,5 +1,7 @@
 package org.usfirst.frc.team6121.robot;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 
@@ -28,23 +30,31 @@ public class RobotMap {
 
 	public static final int A_BUTTON = 1;
 	public static final int B_BUTTON = 2;
-	public static final int X_BUTTON = 3;
+	public static final int RAMP_BUTTON = 3;
 	public static final int DISARM_RAMP_BUTTON = 4;
 	public static final int L_BUTTON = 5;
-	public static final int RAMP_BUTTON = 6;
+	public static final int SOLENOID_EXPAND_BUTTON = 6;
+	public static final int SOLENOID_RETRACT_BUTTON = 7;
+	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 8;
 
 	public static final int SHOOTER_MOTOR = 1;
-	public static final int BALL_INTAKE_MOTOR = 0;
-	public static final int RAMP_MOTOR_1 = 6;
+	public static final int BALL_INTAKE_MOTOR = 6;
+	public static final int RAMP_MOTOR_1 = 0;
 	public static final int RAMP_MOTOR_2 = 7;
 	
 	public static SpeedController rMotor1;
 	public static SpeedController rMotor2;
 	
+	public static DoubleSolenoid rampsSolenoid;
+	public static Solenoid transmissionSolenoid;
+	
 	public static void init() {
 		
 		rMotor1 = new Spark(RAMP_MOTOR_1);
 		rMotor2 = new Spark(RAMP_MOTOR_2);
+		
+		rampsSolenoid = new DoubleSolenoid(0, 1);
+		transmissionSolenoid = new Solenoid(3);
 	
 	}
 	

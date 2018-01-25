@@ -19,6 +19,7 @@ public class DeployRamps extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run

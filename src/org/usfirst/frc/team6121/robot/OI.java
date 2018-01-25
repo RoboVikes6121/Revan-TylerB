@@ -1,6 +1,9 @@
 package org.usfirst.frc.team6121.robot;
 
 import org.usfirst.frc.team6121.robot.commands.DeployRamps;
+import org.usfirst.frc.team6121.robot.commands.RampsSolenoidExpand;
+import org.usfirst.frc.team6121.robot.commands.RampsSolenoidRetract;
+import org.usfirst.frc.team6121.robot.commands.TransmissionSolenoidExpand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -19,10 +22,19 @@ public class OI {
 		operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK);
 		
 		Button deployRampsButton = new JoystickButton(operatorJoystick, RobotMap.RAMP_BUTTON);
-		deployRampsButton.toggleWhenPressed(new DeployRamps(.5));
+		deployRampsButton.whileHeld(new DeployRamps(-.5));
 		
 		Button disarmRampButton = new JoystickButton(operatorJoystick, RobotMap.DISARM_RAMP_BUTTON);
-		disarmRampButton.toggleWhenPressed(new DeployRamps(-.5));
+		disarmRampButton.whileHeld(new DeployRamps(.5));
+		
+		Button solenoidExpandButton = new JoystickButton(operatorJoystick, RobotMap.SOLENOID_EXPAND_BUTTON);
+		solenoidExpandButton.whenPressed(new RampsSolenoidExpand());
+		
+		Button solenoidRetractButton = new JoystickButton(operatorJoystick, RobotMap.SOLENOID_RETRACT_BUTTON);
+		solenoidRetractButton.whenPressed(new RampsSolenoidRetract());
+		
+		Button transmissionSolenoidExpandButton = new JoystickButton(operatorJoystick, RobotMap.TRANSMISSION_SOLENOID_EXPAND_BUTTON);
+		transmissionSolenoidExpandButton.whileHeld(new TransmissionSolenoidExpand());
 	
 	}
 	
