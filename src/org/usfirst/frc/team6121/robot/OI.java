@@ -15,10 +15,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	
+	public static Joystick driverJoystick;
 	public static Joystick operatorJoystick;
 	
 	OI() {
 		
+		driverJoystick = new Joystick(RobotMap.DRIVER_JOYSTICK);
 		operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK);
 		
 		Button deployRampsButton = new JoystickButton(operatorJoystick, RobotMap.RAMP_BUTTON);

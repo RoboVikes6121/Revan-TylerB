@@ -1,9 +1,12 @@
 package org.usfirst.frc.team6121.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -22,6 +25,7 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
+	public static final int DRIVER_JOYSTICK = 0;
 	public static final int OPERATOR_JOYSTICK = 1;
 	
 	public static final int X_AXIS = 0;
@@ -41,10 +45,23 @@ public class RobotMap {
 	
 	public static SpeedController rMotors;
 	
+	public static DifferentialDrive driveTrain;
+	
 	public static DoubleSolenoid rampsSolenoid;
 	public static Solenoid transmissionSolenoid;
 	
 	public static void init() {
+		
+    	WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1); 		
+    	WPI_TalonSRX _frontRightMotor = new WPI_TalonSRX(3);
+    	
+    	WPI_TalonSRX _leftSlave1 = new WPI_TalonSRX(2);
+    	WPI_TalonSRX _rightSlave1 = new WPI_TalonSRX(4);
+
+    	driveTrain = new DifferentialDrive(_frontLeftMotor, _frontRightMotor);
+    	
+    	_leftSlave1.follow(_frontLeftMotor);
+    	_rightSlave1.follow(_frontRightMotor);
 		
 		rMotors = new Spark(RAMP_MOTORS);
 		

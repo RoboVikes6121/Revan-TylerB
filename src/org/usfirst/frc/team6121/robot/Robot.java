@@ -7,14 +7,10 @@ import org.usfirst.frc.team6121.robot.subsystems.ClimbingSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.PneumaticSubsystem;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,16 +30,6 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	
-	WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1); 		
-	WPI_TalonSRX _frontRightMotor = new WPI_TalonSRX(3);
-	
-	WPI_TalonSRX _leftSlave1 = new WPI_TalonSRX(2);
-	WPI_TalonSRX _rightSlave1 = new WPI_TalonSRX(4);
-
-	DifferentialDrive _drive = new DifferentialDrive(_frontLeftMotor, _frontRightMotor);
-	
-	Joystick _joy = new Joystick(0);
-	
 //	UsbCamera camera0;
 //	UsbCamera camera1;
 //	Mat vid = new Mat();
@@ -61,9 +47,6 @@ public class Robot extends IterativeRobot {
 		driveSubsystem = new DriveSubsystem();
 		
 		oi = new OI();
-		
-		_leftSlave1.follow(_frontLeftMotor);
-    	_rightSlave1.follow(_frontRightMotor);
 
 //		camera0 = new UsbCamera("USB Camera 0", 0);
 //		camera0.setFPS(15);
@@ -156,9 +139,9 @@ public class Robot extends IterativeRobot {
 //	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		double forward = _joy.getY();
-    	double turn = _joy.getZ();
-    	_drive.arcadeDrive(forward, turn);
+		double forward = OI.driverJoystick.getY();
+    	double turn = OI.driverJoystick.getZ();
+    	RobotMap.driveTrain.arcadeDrive(forward, turn);
 	}
 
 	/**
