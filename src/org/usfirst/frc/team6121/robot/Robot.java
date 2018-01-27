@@ -1,11 +1,15 @@
 
 package org.usfirst.frc.team6121.robot;
 
+import org.usfirst.frc.team6121.robot.commands.LeftSideAuton;
+import org.usfirst.frc.team6121.robot.commands.RightSideAuton;
 import org.usfirst.frc.team6121.robot.subsystems.ClimbingSubsystem;
+import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.PneumaticSubsystem;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,6 +27,7 @@ public class Robot extends IterativeRobot {
 	
 	public static ClimbingSubsystem climbingSubsystem;
 	public static PneumaticSubsystem pneumaticSubsystem;
+	public static DriveSubsystem driveSubsystem;
 	
 //	public static final NetworkTable table = NetworkTable.getTable("GRIP/targets");
 	public static OI oi;
@@ -34,9 +39,7 @@ public class Robot extends IterativeRobot {
 	
 	WPI_TalonSRX _leftSlave1 = new WPI_TalonSRX(2);
 	WPI_TalonSRX _rightSlave1 = new WPI_TalonSRX(4);
-	WPI_TalonSRX _leftSlave2 = new WPI_TalonSRX(16);
-	WPI_TalonSRX _rightSlave2 = new WPI_TalonSRX(17);
-	
+
 	DifferentialDrive _drive = new DifferentialDrive(_frontLeftMotor, _frontRightMotor);
 	
 	Joystick _joy = new Joystick(0);
@@ -55,13 +58,12 @@ public class Robot extends IterativeRobot {
 
 		climbingSubsystem = new ClimbingSubsystem();
 		pneumaticSubsystem = new PneumaticSubsystem();
+		driveSubsystem = new DriveSubsystem();
 		
 		oi = new OI();
 		
 		_leftSlave1.follow(_frontLeftMotor);
-    	_leftSlave2.follow(_frontLeftMotor);
     	_rightSlave1.follow(_frontRightMotor);
-    	_rightSlave2.follow(_frontRightMotor);
 
 //		camera0 = new UsbCamera("USB Camera 0", 0);
 //		camera0.setFPS(15);
@@ -109,6 +111,14 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		if(gameData.charAt(0) == 'L') 
+		{  
+			autonomousCommand = new LeftSideAuton();
+		} else {
+			autonomousCommand = new RightSideAuton();
+		}
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

@@ -37,21 +37,16 @@ public class RobotMap {
 	public static final int SOLENOID_RETRACT_BUTTON = 7;
 	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 8;
 
-	public static final int SHOOTER_MOTOR = 1;
-	public static final int BALL_INTAKE_MOTOR = 6;
-	public static final int RAMP_MOTOR_1 = 0;
-	public static final int RAMP_MOTOR_2 = 7;
+	public static final int RAMP_MOTORS = 0;
 	
-	public static SpeedController rMotor1;
-	public static SpeedController rMotor2;
+	public static SpeedController rMotors;
 	
 	public static DoubleSolenoid rampsSolenoid;
 	public static Solenoid transmissionSolenoid;
 	
 	public static void init() {
 		
-		rMotor1 = new Spark(RAMP_MOTOR_1);
-		rMotor2 = new Spark(RAMP_MOTOR_2);
+		rMotors = new Spark(RAMP_MOTORS);
 		
 		rampsSolenoid = new DoubleSolenoid(0, 1);
 		transmissionSolenoid = new Solenoid(3);

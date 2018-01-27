@@ -18,8 +18,7 @@ public class ClimbingSubsystem extends Subsystem {
     }
     
     public void setSpeed(double r) {
-    	RobotMap.rMotor1.set(r);
-    	RobotMap.rMotor2.set(r);
+    	RobotMap.rMotors.set(r);
     	
     }
     
