@@ -1,8 +1,10 @@
 package org.usfirst.frc.team6121.robot;
 
 import org.usfirst.frc.team6121.robot.commands.DeployRamps;
+import org.usfirst.frc.team6121.robot.commands.GrabCube;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidExpand;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidRetract;
+import org.usfirst.frc.team6121.robot.commands.ThrowCube;
 import org.usfirst.frc.team6121.robot.commands.TransmissionSolenoidExpand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -23,7 +25,7 @@ public class OI {
 		driverJoystick = new Joystick(RobotMap.DRIVER_JOYSTICK);
 		operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK);
 		
-		Button deployRampsButton = new JoystickButton(operatorJoystick, RobotMap.RAMP_BUTTON);
+		Button deployRampsButton = new JoystickButton(operatorJoystick, RobotMap.DEPLOY_RAMP_BUTTON);
 		deployRampsButton.whileHeld(new DeployRamps(-.5));
 		
 		Button disarmRampButton = new JoystickButton(operatorJoystick, RobotMap.DISARM_RAMP_BUTTON);
@@ -37,6 +39,18 @@ public class OI {
 		
 		Button transmissionSolenoidExpandButton = new JoystickButton(operatorJoystick, RobotMap.TRANSMISSION_SOLENOID_EXPAND_BUTTON);
 		transmissionSolenoidExpandButton.whileHeld(new TransmissionSolenoidExpand());
+		
+		Button throwButton = new JoystickButton(operatorJoystick, RobotMap.THROW_CUBE_BUTTON);
+		throwButton.whenPressed(new ThrowCube(.5, 5));
+		
+		Button rearmThrowerButton = new JoystickButton(operatorJoystick, RobotMap.REARM_THROWER_BUTTON);
+		rearmThrowerButton.whenPressed(new ThrowCube(-.5, 5));
+		
+		Button grabCubeButton = new JoystickButton(operatorJoystick, RobotMap.GRAB_CUBE_BUTTON);
+		grabCubeButton.whenPressed(new GrabCube(.5, 5));
+		
+		Button releaseCubeButton = new JoystickButton(operatorJoystick, RobotMap.RELEASE_CUBE_BUTTON);
+		releaseCubeButton.whenPressed(new GrabCube(-.5, 5));
 	
 	}
 	

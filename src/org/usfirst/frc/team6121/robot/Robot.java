@@ -6,6 +6,7 @@ import org.usfirst.frc.team6121.robot.commands.RightSideAuton;
 import org.usfirst.frc.team6121.robot.subsystems.ClimbingSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.PneumaticSubsystem;
+import org.usfirst.frc.team6121.robot.subsystems.PowerCubeDeliverSubsystem;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -24,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static ClimbingSubsystem climbingSubsystem;
 	public static PneumaticSubsystem pneumaticSubsystem;
 	public static DriveSubsystem driveSubsystem;
+	public static PowerCubeDeliverSubsystem cubeSubsystem;
 	
 //	public static final NetworkTable table = NetworkTable.getTable("GRIP/targets");
 	public static OI oi;
@@ -45,6 +47,7 @@ public class Robot extends IterativeRobot {
 		climbingSubsystem = new ClimbingSubsystem();
 		pneumaticSubsystem = new PneumaticSubsystem();
 		driveSubsystem = new DriveSubsystem();
+		cubeSubsystem = new PowerCubeDeliverSubsystem();
 		
 		oi = new OI();
 
@@ -140,7 +143,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		double forward = OI.driverJoystick.getY();
-    	double turn = OI.driverJoystick.getZ();
+    	double turn = OI.driverJoystick.getX();
     	RobotMap.driveTrain.arcadeDrive(forward, turn);
 	}
 
