@@ -8,6 +8,8 @@ import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.PneumaticSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.PowerCubeDeliverSubsystem;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -50,6 +52,14 @@ public class Robot extends IterativeRobot {
 		cubeSubsystem = new PowerCubeDeliverSubsystem();
 		
 		oi = new OI();
+		
+		UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
+		camera0.setFPS(100);
+		camera0.setResolution(320, 240);
+		
+		UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
+		camera1.setFPS(100);
+		camera1.setResolution(320,  240);
 
 //		camera0 = new UsbCamera("USB Camera 0", 0);
 //		camera0.setFPS(15);
