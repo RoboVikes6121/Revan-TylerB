@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
@@ -64,16 +65,19 @@ public class RobotMap {
 	
 	public static void init() {
 		
-    	WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1); 		
-    	WPI_TalonSRX _frontRightMotor = new WPI_TalonSRX(3);
+    	//WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1); 		
+    	//WPI_TalonSRX _frontRightMotor = new WPI_TalonSRX(3);
     	
-    	WPI_TalonSRX _leftSlave1 = new WPI_TalonSRX(2);
-    	WPI_TalonSRX _rightSlave1 = new WPI_TalonSRX(4);
+    	//WPI_TalonSRX _leftSlave1 = new WPI_TalonSRX(2);
+    	//WPI_TalonSRX _rightSlave1 = new WPI_TalonSRX(4);
+		
+		Victor _frontLeftMotor = new Victor(1); 	
+		Victor _frontRightMotor = new Victor(3); 	
 
     	driveTrain = new DifferentialDrive(_frontLeftMotor, _frontRightMotor);
     	
-    	_leftSlave1.follow(_frontLeftMotor);
-    	_rightSlave1.follow(_frontRightMotor);
+    	//_leftSlave1.follow(_frontLeftMotor);
+    	//_rightSlave1.follow(_frontRightMotor);
 		
 		rMotors = new Spark(RAMP_MOTORS);
 		tMotor = new Spark(THROWER_MOTOR);
