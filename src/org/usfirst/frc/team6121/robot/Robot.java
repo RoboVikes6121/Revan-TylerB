@@ -11,7 +11,6 @@ import org.usfirst.frc.team6121.robot.subsystems.PowerCubeDeliverSubsystem;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -155,7 +154,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		double forward = (OI.driverJoystick.getRawAxis(RobotMap.Y_AXIS)) * (OI.driverJoystick.getRawAxis(RobotMap.R_TRIGGER) + .75);
     	double turn = OI.driverJoystick.getRawAxis(RobotMap.X_AXIS);
-    	RobotMap.driveTrain.arcadeDrive(forward, turn);
+    	RobotMap.driveTrain.arcadeDrive(turn, forward);
 	}
 
 	/**
