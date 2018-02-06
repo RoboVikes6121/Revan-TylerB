@@ -26,5 +26,11 @@ public class PowerCubeDeliverSubsystem extends Subsystem {
     	RobotMap.gMotor.set(s);
     	
     }
+    
+    public void setArms(double s) {
+    	RobotMap.aMotor.set(s);
+    	
+    }
+    
 }
 

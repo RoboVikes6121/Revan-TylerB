@@ -34,30 +34,27 @@ public class RobotMap {
 	public static final int Y_AXIS = 1;
 	public static final int R_TRIGGER = 3;
 
-	public static final int BUTTON_ONE = 1;
-	public static final int BUTTON_TWO = 2;
-	public static final int BUTTON_THREE = 3;
-	public static final int BUTTON_FOUR = 4;
-	public static final int BUTTON_FIVE = 5;
+	public static final int REARM_THROWER_BUTTON = 1;
+	public static final int RELEASE_CUBE_BUTTON = 2;
+	public static final int GRAB_CUBE_BUTTON = 3;
+	public static final int THROW_CUBE_BUTTON = 4;
+	public static final int ARMS_UP_BUTTON = 5;
+	public static final int ARMS_DOWN_BUTTON = 6;
 	public static final int SOLENOID_EXPAND_BUTTON = 6;
 	public static final int SOLENOID_RETRACT_BUTTON = 7;
 	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 8;
-	public static final int BUTTON_NINE = 9;
-	public static final int BUTTON_TEN = 10;
-	public static final int GRAB_CUBE_BUTTON = 11;
-	public static final int THROW_CUBE_BUTTON = 12;
 	public static final int DEPLOY_RAMP_BUTTON = 13;
 	public static final int DISARM_RAMP_BUTTON = 14;
-	public static final int REARM_THROWER_BUTTON = 15;
-	public static final int RELEASE_CUBE_BUTTON = 16;
 
-	public static final int RAMP_MOTORS = 0;
+	public static final int RAMP_MOTORS = 6;
 	public static final int THROWER_MOTOR = 5;
-	public static final int GRABBER_MOTOR = 6;
+	public static final int GRABBER_MOTOR = 0;
+	public static final int ARMS_MOTOR = 7;
 	
 	public static SpeedController rMotors;
 	public static SpeedController tMotor;
 	public static SpeedController gMotor;
+	public static SpeedController aMotor;
 	
 	public static DifferentialDrive driveTrain;
 	
@@ -83,6 +80,7 @@ public class RobotMap {
 		rMotors = new Spark(RAMP_MOTORS);
 		tMotor = new Spark(THROWER_MOTOR);
 		gMotor = new Spark(GRABBER_MOTOR);
+		aMotor = new Victor(ARMS_MOTOR);
 		
 		rampsSolenoid = new DoubleSolenoid(0, 1);
 		transmissionSolenoid = new Solenoid(3);
