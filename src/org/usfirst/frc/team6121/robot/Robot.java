@@ -36,7 +36,8 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	
-	public static DigitalInput limitSwitch;
+	public static DigitalInput limitSwitch1;
+	public static DigitalInput limitSwitch2;
 	
 //	UsbCamera camera0;
 //	UsbCamera camera1;
@@ -65,7 +66,8 @@ public class Robot extends IterativeRobot {
 		camera1.setFPS(100);
 		camera1.setResolution(320,  240);
 		
-		limitSwitch = new DigitalInput(1);
+		limitSwitch1 = new DigitalInput(1);
+		limitSwitch2 = new DigitalInput(2);
 		
 	}
 

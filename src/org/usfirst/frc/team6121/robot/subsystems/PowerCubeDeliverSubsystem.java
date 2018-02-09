@@ -17,11 +17,6 @@ public class PowerCubeDeliverSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void setThrower(double s) {
-    	RobotMap.tMotor.set(s);
-    	
-    }
-    
     public void setGrabber(double s) {
     	RobotMap.gMotor.set(s);
     	
@@ -30,6 +25,15 @@ public class PowerCubeDeliverSubsystem extends Subsystem {
     public void setArms(double s) {
     	RobotMap.aMotor.set(s);
     	
+    }
+    
+    public void setLoader(double l) {
+    	RobotMap.rlMotors.set(l);
+    	
+    }
+    
+    public void placeInSwitch(double p) {
+    	RobotMap.rlMotors.set(p);
     }
     
 }

@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PlaceCubeSwitch extends Command {
+public class RampsUp extends Command {
 	private double speed;
 	private double time;
 
-    public PlaceCubeSwitch(double s, double t) {
+    public RampsUp(double s, double t) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.cubeSubsystem);
+    	requires(Robot.climbingSubsystem);
     	speed = s;
     	time = t;
     }
@@ -26,7 +26,7 @@ public class PlaceCubeSwitch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cubeSubsystem.placeInSwitch(speed);
+    	Robot.climbingSubsystem.setSpeedUp(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +36,7 @@ public class PlaceCubeSwitch extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.cubeSubsystem.placeInSwitch(0);
+    	Robot.climbingSubsystem.setSpeedUp(0);
     }
 
     // Called when another command which requires one or more of the same

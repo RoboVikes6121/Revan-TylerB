@@ -6,6 +6,7 @@ import org.usfirst.frc.team6121.robot.commands.GrabCube;
 import org.usfirst.frc.team6121.robot.commands.PlaceCubeSwitch;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidExpand;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidRetract;
+import org.usfirst.frc.team6121.robot.commands.RampsUp;
 import org.usfirst.frc.team6121.robot.commands.TransmissionSolenoidExpand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -27,10 +28,10 @@ public class OI {
 		operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK);
 		
 		Button deployRampsButton = new JoystickButton(operatorJoystick, RobotMap.DEPLOY_RAMP_BUTTON);
-		deployRampsButton.whenPressed(new DeployRamps(-.5));
+		deployRampsButton.whenPressed(new DeployRamps(-.5, 5));
 		
 		Button disarmRampButton = new JoystickButton(operatorJoystick, RobotMap.DISARM_RAMP_BUTTON);
-		disarmRampButton.whenPressed(new DeployRamps(.5));
+		disarmRampButton.whenPressed(new RampsUp(.5, 5));
 		
 		Button rampsSolenoidExpandButton = new JoystickButton(operatorJoystick, RobotMap.RAMPS_SOLENOID_EXPAND_BUTTON);
 		rampsSolenoidExpandButton.whenPressed(new RampsSolenoidExpand());
@@ -41,18 +42,15 @@ public class OI {
 		Button transmissionSolenoidExpandButton = new JoystickButton(operatorJoystick, RobotMap.TRANSMISSION_SOLENOID_EXPAND_BUTTON);
 		transmissionSolenoidExpandButton.whileHeld(new TransmissionSolenoidExpand());
 		
-		Button rampsOffButton = new JoystickButton(operatorJoystick, RobotMap.RAMPS_OFF_BUTTON);
-		rampsOffButton.whenPressed(new DeployRamps(0));
-		
 		
 		
 		Button switchButton = new JoystickButton(driverJoystick, RobotMap.SWITCH_BUTTON);
 		switchButton.whileHeld(new PlaceCubeSwitch(.5, 5));
 		
-		Button scaleButton = new JoystickButton(driverJoystick, RobotMap.SCALE_BUTTON);
-		scaleButton.whenPressed(new PlaceCubeSwitch(1, 5));
+		//Button scaleButton = new JoystickButton(driverJoystick, RobotMap.SCALE_BUTTON);
+		//scaleButton.whenPressed(new PlaceCubeSwitch(1, 5));
 		
-		Button rearmThrowerButton = new JoystickButton(driverJoystick, RobotMap.REARM_THROWER_BUTTON);
+		Button rearmThrowerButton = new JoystickButton(driverJoystick, RobotMap.LOADER_BUTTON);
 		rearmThrowerButton.whenReleased(new PlaceCubeSwitch(-.5, 5));
 		
 		Button grabCubeButton = new JoystickButton(driverJoystick, RobotMap.GRAB_CUBE_BUTTON);

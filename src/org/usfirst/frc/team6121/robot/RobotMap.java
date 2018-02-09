@@ -35,7 +35,7 @@ public class RobotMap {
 
 	public static final int SWITCH_BUTTON = 1;
 	public static final int SCALE_BUTTON = 2;
-	public static final int REARM_THROWER_BUTTON = 3;
+	public static final int LOADER_BUTTON = 3;
 	public static final int RELEASE_CUBE_BUTTON = 5;
 	public static final int GRAB_CUBE_BUTTON = 6;
 	public static final int ARMS_UP_BUTTON = 7;
@@ -49,12 +49,10 @@ public class RobotMap {
 	public static final int RAMPS_OFF_BUTTON = 15;
 
 	public static final int RAMP_MOTORS = 6;
-	public static final int THROWER_MOTOR = 5;
 	public static final int GRABBER_MOTOR = 0;
 	public static final int ARMS_MOTOR = 7;
 	
-	public static SpeedController rMotors;
-	public static SpeedController tMotor;
+	public static SpeedController rlMotors;
 	public static SpeedController gMotor;
 	public static SpeedController aMotor;
 	
@@ -79,8 +77,7 @@ public class RobotMap {
     	//_leftSlave1.follow(_frontLeftMotor);
     	//_rightSlave1.follow(_frontRightMotor);
 		
-		rMotors = new Spark(RAMP_MOTORS);
-		tMotor = new Spark(THROWER_MOTOR);
+		rlMotors = new Spark(RAMP_MOTORS);
 		gMotor = new Spark(GRABBER_MOTOR);
 		aMotor = new Victor(ARMS_MOTOR);
 		
