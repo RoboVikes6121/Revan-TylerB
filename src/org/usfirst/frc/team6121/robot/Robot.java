@@ -10,8 +10,10 @@ import org.usfirst.frc.team6121.robot.subsystems.PowerCubeDeliverSubsystem;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
@@ -33,6 +35,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
+	
+	public static DigitalInput limitSwitch;
 	
 //	UsbCamera camera0;
 //	UsbCamera camera1;
@@ -60,22 +64,8 @@ public class Robot extends IterativeRobot {
 		UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
 		camera1.setFPS(100);
 		camera1.setResolution(320,  240);
-
-//		camera0 = new UsbCamera("USB Camera 0", 0);
-//		camera0.setFPS(15);
-//		camera0.setResolution(320, 240);
-//		camera0.setBrightness(0);
-//		camera0.setExposureManual(0);
-//		camera0.setWhiteBalanceManual(20);
-//		CameraServer.getInstance().startAutomaticCapture(camera0);
-//		
-//		camera1 = new UsbCamera("USB Camera 1", 1);
-//		camera1.setBrightness(15);
-//		camera1.setFPS(30);
-//		camera1.setWhiteBalanceHoldCurrent();
-//		camera1.setResolution(320, 240);
-//		CameraServer.getInstance().startAutomaticCapture(camera1);
 		
+		limitSwitch = new DigitalInput(1);
 		
 	}
 
@@ -155,6 +145,7 @@ public class Robot extends IterativeRobot {
 		double forward = (OI.driverJoystick.getRawAxis(RobotMap.Y_AXIS)) * (OI.driverJoystick.getRawAxis(RobotMap.R_TRIGGER) + .75);
     	double turn = OI.driverJoystick.getRawAxis(RobotMap.X_AXIS);
     	RobotMap.driveTrain.arcadeDrive(turn, forward);
+    	
 	}
 
 	/**

@@ -2,7 +2,6 @@ package org.usfirst.frc.team6121.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
@@ -34,17 +33,20 @@ public class RobotMap {
 	public static final int Y_AXIS = 1;
 	public static final int R_TRIGGER = 3;
 
-	public static final int REARM_THROWER_BUTTON = 1;
-	public static final int RELEASE_CUBE_BUTTON = 2;
-	public static final int GRAB_CUBE_BUTTON = 3;
-	public static final int THROW_CUBE_BUTTON = 4;
-	public static final int ARMS_UP_BUTTON = 5;
-	public static final int ARMS_DOWN_BUTTON = 6;
-	public static final int SOLENOID_EXPAND_BUTTON = 6;
-	public static final int SOLENOID_RETRACT_BUTTON = 7;
+	public static final int SWITCH_BUTTON = 1;
+	public static final int SCALE_BUTTON = 2;
+	public static final int REARM_THROWER_BUTTON = 3;
+	public static final int RELEASE_CUBE_BUTTON = 5;
+	public static final int GRAB_CUBE_BUTTON = 6;
+	public static final int ARMS_UP_BUTTON = 7;
+	public static final int ARMS_DOWN_BUTTON = 8;
+
+	public static final int RAMPS_SOLENOID_EXPAND_BUTTON = 6;
+	public static final int RAMPS_SOLENOID_RETRACT_BUTTON = 7;
 	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 8;
 	public static final int DEPLOY_RAMP_BUTTON = 13;
 	public static final int DISARM_RAMP_BUTTON = 14;
+	public static final int RAMPS_OFF_BUTTON = 15;
 
 	public static final int RAMP_MOTORS = 6;
 	public static final int THROWER_MOTOR = 5;

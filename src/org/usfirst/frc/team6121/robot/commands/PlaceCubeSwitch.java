@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ThrowCube extends Command {
+public class PlaceCubeSwitch extends Command {
 	private double speed;
 	private double time;
 
-    public ThrowCube(double s, double t) {
+    public PlaceCubeSwitch(double s, double t) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.cubeSubsystem);

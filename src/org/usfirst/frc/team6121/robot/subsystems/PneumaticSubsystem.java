@@ -30,17 +30,17 @@ public class PneumaticSubsystem extends Subsystem {
     	setDefaultCommand(new TransmissionSolenoidExpand());
     }
     
-    public static void solenoidExpand() {
+    public static void rampsSolenoidExpand() {
     	rampsSolenoid.set(DoubleSolenoid.Value.kForward);
     	
     }
     
-    public static void solenoidRetract() {
+    public static void rampsSolenoidRetract() {
     	rampsSolenoid.set(DoubleSolenoid.Value.kReverse);
     	
     }
     
-    public static void solenoidOff() {
+    public static void rampsSolenoidOff() {
     	rampsSolenoid.set(DoubleSolenoid.Value.kOff);
     	
     }
