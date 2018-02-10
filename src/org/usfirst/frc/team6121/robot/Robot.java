@@ -31,17 +31,12 @@ public class Robot extends IterativeRobot {
 	public static DriveSubsystem driveSubsystem;
 	public static PowerCubeDeliverSubsystem cubeSubsystem;
 	
-//	public static final NetworkTable table = NetworkTable.getTable("GRIP/targets");
 	public static OI oi;
 
 	Command autonomousCommand;
 	
 	public static DigitalInput limitSwitch1;
 	public static DigitalInput limitSwitch2;
-	
-//	UsbCamera camera0;
-//	UsbCamera camera1;
-//	Mat vid = new Mat();
 	
 	/**
 	 * This function is run when the robot is first started up and should be
