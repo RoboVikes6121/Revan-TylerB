@@ -53,13 +53,8 @@ public class Robot extends IterativeRobot {
 		
 		oi = new OI();
 		
-		UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
-		camera0.setFPS(100);
-		camera0.setResolution(320, 240);
-		
-		UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
-		camera1.setFPS(100);
-		camera1.setResolution(320,  240);
+		CameraServer.getInstance().startAutomaticCapture(0);
+		CameraServer.getInstance().startAutomaticCapture(1);
 		
 		limitSwitch1 = new DigitalInput(1);
 		limitSwitch2 = new DigitalInput(2);

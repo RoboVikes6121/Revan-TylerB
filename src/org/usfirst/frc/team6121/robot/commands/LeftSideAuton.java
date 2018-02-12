@@ -30,6 +30,7 @@ public class LeftSideAuton extends CommandGroup {
     	addSequential(new Drive(0, -.75, 2.3));
     	addSequential(new Drive(0.75, 0, 1.75));
     	addSequential(new Drive(0, -.6, 2.2));
-    	addSequential(new PlaceCubeSwitch(1, .5));
+    	addSequential(new PlaceCubeSwitch(1));
+    	addSequential(new LoadCube(-1, 5));
     }
 }

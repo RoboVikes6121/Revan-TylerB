@@ -27,7 +27,9 @@ public class ClimbingSubsystem extends Subsystem {
     }
     
     public void setSpeedUp(double r) {
-    	RobotMap.rlMotors.set(r);
+    	if (Robot.limitSwitch2.get())
+    		RobotMap.rlMotors.set(r);
+    	else RobotMap.rlMotors.set(0);
     	
     }
     
