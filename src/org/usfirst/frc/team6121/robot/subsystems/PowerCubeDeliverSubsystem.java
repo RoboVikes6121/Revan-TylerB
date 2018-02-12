@@ -18,7 +18,8 @@ public class PowerCubeDeliverSubsystem extends Subsystem {
     }
     
     public void setGrabber(double s) {
-    	RobotMap.gMotor.set(s);
+    	RobotMap.gMotor1.set(s);
+    	RobotMap.gMotor2.set(-s);
     	
     }
     
