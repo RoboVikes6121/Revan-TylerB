@@ -2,6 +2,7 @@ package org.usfirst.frc.team6121.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
@@ -62,6 +63,8 @@ public class RobotMap {
 	public static DoubleSolenoid rampsSolenoid;
 	public static Solenoid transmissionSolenoid;
 	
+	public static ADXRS450_Gyro gyro;
+	
 	public static void init() {
 		
     	WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1); 		
@@ -82,6 +85,8 @@ public class RobotMap {
 		
 		rampsSolenoid = new DoubleSolenoid(0, 1);
 		transmissionSolenoid = new Solenoid(3);
+		
+		gyro = new ADXRS450_Gyro();
 	
 	}
 	

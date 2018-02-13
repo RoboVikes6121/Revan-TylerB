@@ -3,7 +3,6 @@ package org.usfirst.frc.team6121.robot;
 import org.usfirst.frc.team6121.robot.commands.DeployArms;
 import org.usfirst.frc.team6121.robot.commands.DeployRamps;
 import org.usfirst.frc.team6121.robot.commands.GrabCube;
-import org.usfirst.frc.team6121.robot.commands.LoadCube;
 import org.usfirst.frc.team6121.robot.commands.PlaceCubeSwitch;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidExpand;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidRetract;
@@ -50,13 +49,13 @@ public class OI {
 		
 		
 		Button switchButton = new JoystickButton(operatorJoystick, RobotMap.LOADER_BUTTON);
-		switchButton.whileHeld(new PlaceCubeSwitch(.5));
+		switchButton.whileHeld(new PlaceCubeSwitch(.5, .000001));
 		
 		//Button scaleButton = new JoystickButton(driverJoystick, RobotMap.SCALE_BUTTON);
 		//scaleButton.whenPressed(new PlaceCubeSwitch(1, 5));
 		
 		Button rearmThrowerButton = new JoystickButton(driverJoystick, RobotMap.LOADER_BUTTON);
-		rearmThrowerButton.whenReleased(new LoadCube(-.5, 5));
+		rearmThrowerButton.whenReleased(new PlaceCubeSwitch(-.5, 5));
 		
 		Button grabCubeButton = new JoystickButton(driverJoystick, RobotMap.GRAB_CUBE_BUTTON);
 		grabCubeButton.whenPressed(new GrabCube(.5, 5));

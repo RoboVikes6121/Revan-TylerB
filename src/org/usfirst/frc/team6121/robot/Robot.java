@@ -132,9 +132,6 @@ public class Robot extends IterativeRobot {
 //	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		double forward = (OI.driverJoystick.getRawAxis(RobotMap.Y_AXIS)) * (OI.driverJoystick.getRawAxis(RobotMap.R_TRIGGER) + .75);
-    	double turn = OI.driverJoystick.getRawAxis(RobotMap.X_AXIS);
-    	RobotMap.driveTrain.arcadeDrive(forward, turn);
     	
 	}
 

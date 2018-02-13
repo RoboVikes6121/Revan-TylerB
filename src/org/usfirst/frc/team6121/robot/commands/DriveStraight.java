@@ -1,32 +1,34 @@
 package org.usfirst.frc.team6121.robot.commands;
 
 import org.usfirst.frc.team6121.robot.Robot;
+import org.usfirst.frc.team6121.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class LoadCube extends Command {
-	private double speed;
+public class DriveStraight extends Command {
+	private double move;
 	private double time;
 
-    public LoadCube(double l, double t) {
+    public DriveStraight(double m, double t) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.cubeSubsystem);
-    	speed = l;
+    	requires(Robot.driveSubsystem);
+    	move = m;
     	time = t;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(time);
+    	RobotMap.gyro.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cubeSubsystem.setLoader(speed);
+    	Robot.driveSubsystem.driveStraight(move);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +38,7 @@ public class LoadCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.cubeSubsystem.setLoader(0);
+    	Robot.driveSubsystem.driveStraight(0);
     }
 
     // Called when another command which requires one or more of the same
