@@ -3,6 +3,8 @@ package org.usfirst.frc.team6121.robot;
 import org.usfirst.frc.team6121.robot.commands.DeployArms;
 import org.usfirst.frc.team6121.robot.commands.DeployRamps;
 import org.usfirst.frc.team6121.robot.commands.GrabCube;
+import org.usfirst.frc.team6121.robot.commands.PinSolenoidExpand;
+import org.usfirst.frc.team6121.robot.commands.PinSolenoidRetract;
 import org.usfirst.frc.team6121.robot.commands.PlaceCubeSwitch;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidExpand;
 import org.usfirst.frc.team6121.robot.commands.RampsSolenoidRetract;
@@ -46,13 +48,19 @@ public class OI {
 		Button transmissionSolenoidExpandButton = new JoystickButton(operatorJoystick, RobotMap.TRANSMISSION_SOLENOID_EXPAND_BUTTON);
 		transmissionSolenoidExpandButton.whileHeld(new TransmissionSolenoidExpand());
 		
+		Button pinSolenoidExpandButton = new JoystickButton(operatorJoystick, RobotMap.PIN_SOLENOID_EXPAND_BUTTON);
+		pinSolenoidExpandButton.whenPressed(new PinSolenoidExpand());
+		
+		Button pinSolenoidRetractButton = new JoystickButton(operatorJoystick, RobotMap.PIN_SOLENOID_RETRACT_BUTTON);
+		pinSolenoidRetractButton.whenPressed(new PinSolenoidRetract());
 		
 		
-		Button switchButton = new JoystickButton(operatorJoystick, RobotMap.LOADER_BUTTON);
+		
+		Button switchButton = new JoystickButton(driverJoystick, RobotMap.LOADER_BUTTON);
 		switchButton.whileHeld(new PlaceCubeSwitch(.5, .000001));
 		
-		//Button scaleButton = new JoystickButton(driverJoystick, RobotMap.SCALE_BUTTON);
-		//scaleButton.whenPressed(new PlaceCubeSwitch(1, 5));
+		Button scaleButton = new JoystickButton(driverJoystick, RobotMap.SCALE_BUTTON);
+		scaleButton.whenPressed(new PlaceCubeSwitch(1, 5));
 		
 		Button rearmThrowerButton = new JoystickButton(driverJoystick, RobotMap.LOADER_BUTTON);
 		rearmThrowerButton.whenReleased(new PlaceCubeSwitch(-.5, 5));

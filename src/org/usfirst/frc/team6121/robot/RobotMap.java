@@ -41,12 +41,14 @@ public class RobotMap {
 	public static final int ARMS_UP_BUTTON = 7;
 	public static final int ARMS_DOWN_BUTTON = 8;
 
-	public static final int RAMPS_SOLENOID_EXPAND_BUTTON = 6;
-	public static final int RAMPS_SOLENOID_RETRACT_BUTTON = 7;
-	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 8;
+	public static final int RAMPS_SOLENOID_EXPAND_BUTTON = 7;
+	public static final int RAMPS_SOLENOID_RETRACT_BUTTON = 8;
+	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 5;
 	public static final int DEPLOY_RAMP_BUTTON = 13;
 	public static final int DISARM_RAMP_BUTTON = 14;
 	public static final int RAMPS_OFF_BUTTON = 15;
+	public static final int PIN_SOLENOID_EXPAND_BUTTON = 6;
+	public static final int PIN_SOLENOID_RETRACT_BUTTON = 9;
 
 	public static final int RAMP_MOTORS = 0;
 	public static final int GRABBER_MOTOR_1 = 6;
@@ -62,6 +64,7 @@ public class RobotMap {
 	
 	public static DoubleSolenoid rampsSolenoid;
 	public static Solenoid transmissionSolenoid;
+	public static DoubleSolenoid pinSolenoid;
 	
 	public static ADXRS450_Gyro gyro;
 	
@@ -69,7 +72,7 @@ public class RobotMap {
 		
     	WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1); 		
     	WPI_TalonSRX _frontRightMotor = new WPI_TalonSRX(3);
-    	
+
     	WPI_TalonSRX _leftSlave1 = new WPI_TalonSRX(2);
     	WPI_TalonSRX _rightSlave1 = new WPI_TalonSRX(4);	
 
@@ -85,6 +88,7 @@ public class RobotMap {
 		
 		rampsSolenoid = new DoubleSolenoid(0, 1);
 		transmissionSolenoid = new Solenoid(3);
+		pinSolenoid = new DoubleSolenoid(2, 5);
 		
 		gyro = new ADXRS450_Gyro();
 	
