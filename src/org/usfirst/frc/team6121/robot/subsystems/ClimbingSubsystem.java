@@ -1,6 +1,5 @@
 package org.usfirst.frc.team6121.robot.subsystems;
 
-import org.usfirst.frc.team6121.robot.Robot;
 import org.usfirst.frc.team6121.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,16 +18,12 @@ public class ClimbingSubsystem extends Subsystem {
     }
     
     public void setSpeedDown(double r) {
-    	if (Robot.limitSwitch1.get())
     		RobotMap.rlMotors.set(r);
-    	else RobotMap.rlMotors.set(0);
     	
     }
     
     public void setSpeedUp(double r) {
-    	if (Robot.limitSwitch2.get())
     		RobotMap.rlMotors.set(r);
-    	else RobotMap.rlMotors.set(0);
     	
     }
     

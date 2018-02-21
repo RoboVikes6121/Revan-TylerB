@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GrabCube extends Command {
+public class LoadCube extends Command {
 	private double speed;
 	private double time;
 
-    public GrabCube(double s, double t) {
+    public LoadCube(double s, double t) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.cubeSubsystem);
@@ -26,7 +26,7 @@ public class GrabCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cubeSubsystem.setGrabber(speed);
+    	Robot.cubeSubsystem.setLoader(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +36,7 @@ public class GrabCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.cubeSubsystem.setGrabber(0);
+    	Robot.cubeSubsystem.setLoader(0);
     }
 
     // Called when another command which requires one or more of the same

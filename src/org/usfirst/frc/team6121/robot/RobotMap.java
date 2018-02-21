@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
@@ -30,46 +29,34 @@ public class RobotMap {
 	public static final int DRIVER_JOYSTICK = 0;
 	public static final int OPERATOR_JOYSTICK = 1;
 	
-	public static final int X_AXIS = 0;
+	public static final int X_AXIS = 4;
 	public static final int Y_AXIS = 1;
 	public static final int R_TRIGGER = 3;
 
-	public static final int SCALE_BUTTON = 2;
-	public static final int LOADER_BUTTON = 3;
-	public static final int RELEASE_CUBE_BUTTON = 5;
-	public static final int GRAB_CUBE_BUTTON = 6;
-	public static final int ARMS_UP_BUTTON = 7;
-	public static final int ARMS_DOWN_BUTTON = 8;
-
+	public static final int LOADER_BUTTON = 15;
+	public static final int SWITCH_BUTTON = 12;
 	public static final int RAMPS_SOLENOID_EXPAND_BUTTON = 7;
 	public static final int RAMPS_SOLENOID_RETRACT_BUTTON = 8;
 	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 5;
 	public static final int DEPLOY_RAMP_BUTTON = 13;
 	public static final int DISARM_RAMP_BUTTON = 14;
-	public static final int RAMPS_OFF_BUTTON = 15;
 	public static final int PIN_SOLENOID_EXPAND_BUTTON = 6;
-	public static final int PIN_SOLENOID_RETRACT_BUTTON = 9;
+	public static final int DRIVER_PIN_BUTTON = 1;
 
 	public static final int RAMP_MOTORS = 0;
-	public static final int GRABBER_MOTOR_1 = 6;
-	public static final int GRABBER_MOTOR_2 = 8;
-	public static final int ARMS_MOTOR = 7;
 	
 	public static SpeedController rlMotors;
-	public static SpeedController gMotor1;
-	public static SpeedController gMotor2;
-	public static SpeedController aMotor;
 	
 	public static DifferentialDrive driveTrain;
 	
 	public static DoubleSolenoid rampsSolenoid;
 	public static Solenoid transmissionSolenoid;
-	public static DoubleSolenoid pinSolenoid;
+	public static Solenoid pinSolenoid;
 	
 	public static ADXRS450_Gyro gyro;
 	
 	public static void init() {
-		
+    	
     	WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1); 		
     	WPI_TalonSRX _frontRightMotor = new WPI_TalonSRX(3);
 
@@ -82,13 +69,10 @@ public class RobotMap {
     	_rightSlave1.follow(_frontRightMotor);
 		
 		rlMotors = new Spark(RAMP_MOTORS);
-		gMotor1 = new Spark(GRABBER_MOTOR_1);
-		gMotor2 = new Spark(GRABBER_MOTOR_2);
-		aMotor = new Victor(ARMS_MOTOR);
 		
 		rampsSolenoid = new DoubleSolenoid(0, 1);
-		transmissionSolenoid = new Solenoid(3);
-		pinSolenoid = new DoubleSolenoid(2, 5);
+		transmissionSolenoid = new Solenoid(2);
+		pinSolenoid = new Solenoid(3);
 		
 		gyro = new ADXRS450_Gyro();
 	
