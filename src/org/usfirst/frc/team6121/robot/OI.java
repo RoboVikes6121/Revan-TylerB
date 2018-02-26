@@ -42,10 +42,10 @@ public class OI {
 		transmissionSolenoidExpandButton.whileHeld(new TransmissionSolenoidExpand());
 		
 		Button switchButton = new JoystickButton(operatorJoystick, RobotMap.SWITCH_BUTTON);
-		switchButton.whileHeld(new PlaceCubeSwitch(.5, .000001));
+		switchButton.whileHeld(new PlaceCubeSwitch(.5, .1));
 		
 		Button loadButton = new JoystickButton(operatorJoystick, RobotMap.LOADER_BUTTON);
-		loadButton.whileHeld(new LoadCube(-.5, .000000001));
+		loadButton.whileHeld(new LoadCube(-.5, .1));
 	
 	}
 	

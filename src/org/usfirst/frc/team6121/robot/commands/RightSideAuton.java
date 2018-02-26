@@ -25,8 +25,12 @@ public class RightSideAuton extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel(new Drive(.65, 0, 2.5));
-    	addSequential(new PlaceCubeSwitch(-.4, 2.5));
-    	addSequential(new LoadCube(.4, 2));
+    	addSequential(new Drive(-.65, 0, .8));
+    	//addSequential(new Drive(0, .65, 1.5));
+    	//addSequential(new Drive(-.65, 0, 2));
+    	//addSequential(new Drive(0, -.65, .8));
+    	//addParallel(new Drive(-.65, 0, 1));
+    	//addSequential(new PlaceCubeSwitch(-.4, 4));
+    	//addSequential(new LoadCube(.6, 2));
     }
 }
