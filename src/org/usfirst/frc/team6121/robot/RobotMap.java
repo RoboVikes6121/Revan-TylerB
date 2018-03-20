@@ -35,17 +35,15 @@ public class RobotMap {
 
 	public static final int LOADER_BUTTON = 15;
 	public static final int SWITCH_BUTTON = 12;
-	public static final int RAMPS_SOLENOID_EXPAND_BUTTON = 7;
-	public static final int RAMPS_SOLENOID_RETRACT_BUTTON = 8;
 	public static final int TRANSMISSION_SOLENOID_EXPAND_BUTTON = 5;
-	public static final int DEPLOY_RAMP_BUTTON = 13;
-	public static final int DISARM_RAMP_BUTTON = 14;
-	public static final int PIN_SOLENOID_EXPAND_BUTTON = 6;
-	public static final int DRIVER_PIN_BUTTON = 1;
 
 	public static final int RAMP_MOTORS = 0;
+	public static final int GRABBER_MOTOR_1 = 9;
+	public static final int GRABBER_MOTOR_2 = 10;
 	
 	public static SpeedController rlMotors;
+	public static SpeedController gMotor1;
+	public static SpeedController gMotor2;
 	
 	public static DifferentialDrive driveTrain;
 	
@@ -69,6 +67,8 @@ public class RobotMap {
     	_rightSlave1.follow(_frontRightMotor);
 		
 		rlMotors = new Spark(RAMP_MOTORS);
+		gMotor1 = new Spark(GRABBER_MOTOR_1);
+		gMotor2 = new Spark(GRABBER_MOTOR_2);
 		
 		rampsSolenoid = new DoubleSolenoid(0, 1);
 		transmissionSolenoid = new Solenoid(2);

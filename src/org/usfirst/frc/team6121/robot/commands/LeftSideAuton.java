@@ -25,12 +25,11 @@ public class LeftSideAuton extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new Drive(.8, 0, 1));
-    	addSequential(new Drive(0, -.75, .9));
-    	addSequential(new Drive(.75, 0, 2.3));
-    	addSequential(new Drive(0, 0.75, 1.75));
-    	addParallel(new Drive(.6, 0, 2.2));
-    	addSequential(new PlaceCubeSwitch(1, 3));
-    	addSequential(new LoadCube(-1, 3));
+    	addSequential(new Drive(.5, 0, .8));
+    	addSequential(new Drive(0, -.6, .7));
+    	addSequential(new Drive(.5, 0, 2.6));
+    	addSequential(new Drive(0, 0.6, 0.9));
+    	addParallel(new Drive(.5, 0, 1.6));
+    	addSequential(new PlaceCubeSwitch(-.6, 4));
     }
 }

@@ -1,10 +1,6 @@
 package org.usfirst.frc.team6121.robot.subsystems;
 
 import org.usfirst.frc.team6121.robot.RobotMap;
-import org.usfirst.frc.team6121.robot.commands.PinSolenoidExpand;
-import org.usfirst.frc.team6121.robot.commands.RampsSolenoidExpand;
-import org.usfirst.frc.team6121.robot.commands.RampsSolenoidRetract;
-import org.usfirst.frc.team6121.robot.commands.TransmissionSolenoidExpand;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -27,25 +23,6 @@ public class PneumaticSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new RampsSolenoidExpand());
-    	setDefaultCommand(new RampsSolenoidRetract());
-    	setDefaultCommand(new TransmissionSolenoidExpand());
-    	setDefaultCommand(new PinSolenoidExpand());
-    }
-    
-    public static void rampsSolenoidExpand() {
-    	rampsSolenoid.set(DoubleSolenoid.Value.kForward);
-    	
-    }
-    
-    public static void rampsSolenoidRetract() {
-    	rampsSolenoid.set(DoubleSolenoid.Value.kReverse);
-    	
-    }
-    
-    public static void rampsSolenoidOff() {
-    	rampsSolenoid.set(DoubleSolenoid.Value.kOff);
-    	
     }
     
     public static void transmissionSolenoidExpand() {
@@ -55,16 +32,6 @@ public class PneumaticSubsystem extends Subsystem {
     
     public static void transmissionSolenoidOff() {
     	transmissionSolenoid.set(false);
-    	
-    }
-    
-    public static void pinSolenoidExpand() {
-    	pinSolenoid.set(true);
-    	
-    }
-    
-    public static void pinSolenoidOff() {
-    	pinSolenoid.set(false);
     	
     }
     
