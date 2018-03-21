@@ -14,9 +14,8 @@ public class PneumaticSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	static DoubleSolenoid rampsSolenoid = RobotMap.rampsSolenoid;
 	static Solenoid transmissionSolenoid = RobotMap.transmissionSolenoid;
-	static Solenoid pinSolenoid = RobotMap.pinSolenoid;
+	static DoubleSolenoid armsSolenoid = RobotMap.armsSolenoid;
 	
 	public static boolean running;
 
@@ -32,6 +31,21 @@ public class PneumaticSubsystem extends Subsystem {
     
     public static void transmissionSolenoidOff() {
     	transmissionSolenoid.set(false);
+    	
+    }
+    
+    public static void armsSolenoidExpand() {
+    	armsSolenoid.set(DoubleSolenoid.Value.kForward);
+    	
+    }
+    
+    public static void armsSolenoidRetract() {
+    	armsSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	
+    }
+    
+    public static void armsSolenoidOff() {
+    	armsSolenoid.set(DoubleSolenoid.Value.kOff);
     	
     }
     

@@ -15,9 +15,7 @@ public class DriveSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.z
 	
-	public static final double Kp = 0.05;
-	
-	public static final double Kdriveturn = 0.35;
+	public static final double Kp = 0.6;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -44,11 +42,4 @@ public class DriveSubsystem extends Subsystem {
     	
     }
     
-    public void turn(double a) {
-    	double angle = RobotMap.gyro.getAngle();
-    	drive(angle* Kdriveturn, a);
-    	Timer.delay(.004);
-    }
-    
 }
-

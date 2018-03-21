@@ -47,9 +47,8 @@ public class RobotMap {
 	
 	public static DifferentialDrive driveTrain;
 	
-	public static DoubleSolenoid rampsSolenoid;
 	public static Solenoid transmissionSolenoid;
-	public static Solenoid pinSolenoid;
+	public static DoubleSolenoid armsSolenoid;
 	
 	public static ADXRS450_Gyro gyro;
 	
@@ -70,9 +69,8 @@ public class RobotMap {
 		gMotor1 = new Spark(GRABBER_MOTOR_1);
 		gMotor2 = new Spark(GRABBER_MOTOR_2);
 		
-		rampsSolenoid = new DoubleSolenoid(0, 1);
+		armsSolenoid = new DoubleSolenoid(0, 1);
 		transmissionSolenoid = new Solenoid(2);
-		pinSolenoid = new Solenoid(3);
 		
 		gyro = new ADXRS450_Gyro();
 	
