@@ -27,17 +27,21 @@ public class PowerCubeDeliverSubsystem extends Subsystem {
     public void setLoader(double l) {
     	if (Robot.limitSwitch2.get())
     		RobotMap.rlMotors.set(l);
-    	else RobotMap.rlMotors.set(l);
-    }
-    
-    public void launchGrabber(double s) {
-    	RobotMap.gMotor1.set(s);
-    	RobotMap.gMotor2.set(-s);
+    	else RobotMap.rlMotors.set(0);
     }
     
     public void grabberPull(double s) {
-    	RobotMap.gMotor1.set(-s);
-    	RobotMap.gMotor2.set(s);
+    	if (Robot.limitSwitch3.get())
+    		RobotMap.glMotor.set(-s);
+    	else RobotMap.glMotor.set(0); 
+    	if (Robot.limitSwitch3.get())
+    		RobotMap.grMotor.set(s);
+    	else RobotMap.grMotor.set(0);
+    }
+    
+    public void launchGrabber(double s) {
+    	RobotMap.glMotor.set(s);
+    	RobotMap.grMotor.set(-s);
     }
     
 }

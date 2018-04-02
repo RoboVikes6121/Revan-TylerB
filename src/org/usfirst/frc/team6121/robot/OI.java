@@ -1,5 +1,9 @@
 package org.usfirst.frc.team6121.robot;
 
+import org.usfirst.frc.team6121.robot.commands.ArmsDeploy;
+import org.usfirst.frc.team6121.robot.commands.ArmsRetract;
+import org.usfirst.frc.team6121.robot.commands.GrabberGrab;
+import org.usfirst.frc.team6121.robot.commands.GrabberLaunch;
 import org.usfirst.frc.team6121.robot.commands.LoadCube;
 import org.usfirst.frc.team6121.robot.commands.PlaceCubeSwitch;
 import org.usfirst.frc.team6121.robot.commands.TransmissionSolenoidExpand;
@@ -30,6 +34,18 @@ public class OI {
 		
 		Button loadButton = new JoystickButton(operatorJoystick, RobotMap.LOADER_BUTTON);
 		loadButton.whileHeld(new LoadCube(-.5, .1));
+		
+		Button grabButton = new JoystickButton(operatorJoystick, RobotMap.GRAB_BUTTON);
+		grabButton.whileHeld(new GrabberGrab(.5));
+		
+		Button launchButton = new JoystickButton(operatorJoystick, RobotMap.LAUNCH_BUTTON);
+		launchButton.whileHeld(new GrabberLaunch(-.5));
+		
+		Button deployArmsButton = new JoystickButton(operatorJoystick, RobotMap.DEPLOY_ARMS_BUTTON);
+		deployArmsButton.whileHeld(new ArmsDeploy());
+		
+		Button retractArmsButton = new JoystickButton(operatorJoystick, RobotMap.RETRACT_ARMS_BUTTON);
+		retractArmsButton.whileHeld(new ArmsRetract());
 	
 	}
 	

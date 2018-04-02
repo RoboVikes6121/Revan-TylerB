@@ -11,7 +11,7 @@ public class GrabberLaunch extends Command {
 	private double speed;
 	
 
-    public GrabberLaunch(double s, double t) {
+    public GrabberLaunch(double s) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.cubeSubsystem);

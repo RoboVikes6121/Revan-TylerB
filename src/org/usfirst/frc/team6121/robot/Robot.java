@@ -35,6 +35,7 @@ public class Robot extends IterativeRobot {
 	
 	public static DigitalInput limitSwitch1;
 	public static DigitalInput limitSwitch2;
+	public static DigitalInput limitSwitch3;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -56,6 +57,7 @@ public class Robot extends IterativeRobot {
 		
 		limitSwitch1 = new DigitalInput(1);
 		limitSwitch2 = new DigitalInput(2);
+		limitSwitch3 = new DigitalInput(3);
 		
 	}
 
