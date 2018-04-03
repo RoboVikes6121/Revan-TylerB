@@ -42,10 +42,10 @@ public class OI {
 		launchButton.whileHeld(new GrabberLaunch(-.5));
 		
 		Button deployArmsButton = new JoystickButton(operatorJoystick, RobotMap.DEPLOY_ARMS_BUTTON);
-		deployArmsButton.whileHeld(new ArmsDeploy());
+		deployArmsButton.whenPressed(new ArmsDeploy());
 		
 		Button retractArmsButton = new JoystickButton(operatorJoystick, RobotMap.RETRACT_ARMS_BUTTON);
-		retractArmsButton.whileHeld(new ArmsRetract());
+		retractArmsButton.whenPressed(new ArmsRetract());
 	
 	}
 	

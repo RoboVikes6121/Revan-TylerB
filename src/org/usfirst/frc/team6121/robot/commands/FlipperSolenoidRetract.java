@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArmsDeploy extends Command {
+public class FlipperSolenoidRetract extends Command {
 
-    public ArmsDeploy() {
+    public FlipperSolenoidRetract() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.pneumaticSubsystem);
@@ -21,7 +21,7 @@ public class ArmsDeploy extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.pneumaticSubsystem.armsSolenoidExpand();
+    	Robot.pneumaticSubsystem.flipperSolenoidRetract();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,7 +31,7 @@ public class ArmsDeploy extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.pneumaticSubsystem.armsSolenoidOff();
+    	Robot.pneumaticSubsystem.flipperSolenoidRetract();
     }
 
     // Called when another command which requires one or more of the same

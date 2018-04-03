@@ -3,8 +3,8 @@ package org.usfirst.frc.team6121.robot;
 
 import org.usfirst.frc.team6121.robot.commands.LeftSideAuton;
 import org.usfirst.frc.team6121.robot.commands.RightSideAuton;
-import org.usfirst.frc.team6121.robot.subsystems.ClimbingSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team6121.robot.subsystems.LightSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.PneumaticSubsystem;
 import org.usfirst.frc.team6121.robot.subsystems.PowerCubeDeliverSubsystem;
 
@@ -24,10 +24,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  */
 public class Robot extends IterativeRobot {
 	
-	public static ClimbingSubsystem climbingSubsystem;
 	public static PneumaticSubsystem pneumaticSubsystem;
 	public static DriveSubsystem driveSubsystem;
 	public static PowerCubeDeliverSubsystem cubeSubsystem;
+	public static LightSubsystem lightSubsystem;
 	
 	public static OI oi;
 
@@ -45,10 +45,10 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 
-		climbingSubsystem = new ClimbingSubsystem();
 		pneumaticSubsystem = new PneumaticSubsystem();
 		driveSubsystem = new DriveSubsystem();
 		cubeSubsystem = new PowerCubeDeliverSubsystem();
+		lightSubsystem = new LightSubsystem();
 		
 		oi = new OI();
 		

@@ -16,6 +16,7 @@ public class PneumaticSubsystem extends Subsystem {
 	
 	static Solenoid transmissionSolenoid = RobotMap.transmissionSolenoid;
 	static DoubleSolenoid armsSolenoid = RobotMap.armsSolenoid;
+	static DoubleSolenoid flipperSolenoid = RobotMap.flipperSolenoid;
 	
 	public static boolean running;
 
@@ -24,28 +25,43 @@ public class PneumaticSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public static void transmissionSolenoidExpand() {
+    public void transmissionSolenoidExpand() {
     	transmissionSolenoid.set(true);
     	
     }
     
-    public static void transmissionSolenoidOff() {
+    public void transmissionSolenoidOff() {
     	transmissionSolenoid.set(false);
     	
     }
     
-    public static void armsSolenoidExpand() {
+    public void armsSolenoidExpand() {
     	armsSolenoid.set(DoubleSolenoid.Value.kForward);
     	
     }
     
-    public static void armsSolenoidRetract() {
+    public void armsSolenoidRetract() {
     	armsSolenoid.set(DoubleSolenoid.Value.kReverse);
     	
     }
     
-    public static void armsSolenoidOff() {
+    public void armsSolenoidOff() {
     	armsSolenoid.set(DoubleSolenoid.Value.kOff);
+    	
+    }
+    
+    public void flipperSolenoidExpand() {
+    	flipperSolenoid.set(DoubleSolenoid.Value.kForward);
+    	
+    }
+    
+    public void flipperSolenoidRetract() {
+    	flipperSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	
+    }
+    
+    public void flipperSolenoidOff() {
+    	flipperSolenoid.set(DoubleSolenoid.Value.kOff);
     	
     }
     

@@ -7,14 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class RampsUp extends Command {
-	private double speed;
+public class FlipperSolenoidExpand extends Command {
 
-    public RampsUp(double s) {
+    public FlipperSolenoidExpand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.climbingSubsystem);
-    	speed = s;
+    	requires(Robot.pneumaticSubsystem);
     }
 
     // Called just before this Command runs the first time
@@ -23,17 +21,17 @@ public class RampsUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climbingSubsystem.setSpeedUp(speed);
+    	Robot.pneumaticSubsystem.flipperSolenoidExpand();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.climbingSubsystem.setSpeedUp(0);
+    	Robot.pneumaticSubsystem.flipperSolenoidOff();
     }
 
     // Called when another command which requires one or more of the same
