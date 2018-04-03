@@ -41,6 +41,9 @@ public class RobotMap {
 	public static final int LAUNCH_BUTTON = 13;
 	public static final int DEPLOY_ARMS_BUTTON = 8;
 	public static final int RETRACT_ARMS_BUTTON = 7;
+	public static final int FLIPPER_SOLENOID_EXTEND_BUTTON = 6;
+	public static final int FLIPPER_SOLENOID_RETRACT_BUTTON = 9;
+	public static final int LIGHTS_BUTTON = 10;
 
 	public static final int RAMP_MOTORS = 0;
 	public static final int GRABBER_MOTOR_1 = 1;
@@ -78,8 +81,8 @@ public class RobotMap {
 		grMotor = new Victor(GRABBER_MOTOR_2);
 		lMotor = new Spark(LIGHT_MOTOR);
 		
-		armsSolenoid = new DoubleSolenoid(1, 2);
-		flipperSolenoid = new DoubleSolenoid(3, 4);
+		armsSolenoid = new DoubleSolenoid(1, 5);
+		flipperSolenoid = new DoubleSolenoid(7, 6);
 		transmissionSolenoid = new Solenoid(0);
 		
 		gyro = new ADXRS450_Gyro();
